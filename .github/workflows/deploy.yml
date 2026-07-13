@@ -25,8 +25,12 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare static site
+        run: |
+          mkdir -p _site
+          cp index.html favicon.svg manifest.json preview.svg robots.txt sitemap.xml .nojekyll _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
