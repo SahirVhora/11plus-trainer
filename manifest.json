@@ -1,0 +1,13 @@
+{
+  "name": "11+ Trainer - Free 11+ Exam Practice",
+  "short_name": "11+ Trainer",
+  "description": "Free 11+ practice for NVR, vocabulary, maths, verbal reasoning and timed mock exams.",
+  "start_url": "/11plus-trainer/",
+  "scope": "/11plus-trainer/",
+  "display": "standalone",
+  "background_color": "#f4f5fb",
+  "theme_color": "#5b4fc4",
+  "lang": "en-GB",
+  "categories": ["education", "productivity"],
+  "icons": [{"src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free 11+ Trainer - NVR, Maths & Mock Exams</title>
+<meta name="description" content="Free 11+ practice trainer for UK grammar school entry. Build NVR, vocabulary, maths and verbal reasoning skills with unlimited questions and timed mock exams.">
+<meta name="keywords" content="11 plus practice, 11+ trainer, 11 plus maths, non-verbal reasoning, verbal reasoning, grammar school entrance, GL Assessment practice">
+<meta name="author" content="Sahir Vhora">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#5b4fc4">
+<link rel="canonical" href="https://sahirvhora.github.io/11plus-trainer/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="11+ Trainer">
+<meta property="og:title" content="Free 11+ Trainer - NVR, Maths and Mock Exams">
+<meta property="og:description" content="Build 11+ exam confidence with unlimited NVR, vocabulary, maths and verbal reasoning practice, plus GL-style timed mock exams.">
+<meta property="og:url" content="https://sahirvhora.github.io/11plus-trainer/">
+<meta property="og:image" content="https://sahirvhora.github.io/11plus-trainer/preview.svg">
+<meta property="og:image:secure_url" content="https://sahirvhora.github.io/11plus-trainer/preview.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free 11+ Trainer - NVR, Maths and Mock Exams">
+<meta name="twitter:description" content="Unlimited 11+ practice for NVR, vocabulary, maths and verbal reasoning, with timed GL-style mocks.">
+<meta name="twitter:image" content="https://sahirvhora.github.io/11plus-trainer/preview.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "11+ Trainer",
+  "url": "https://sahirvhora.github.io/11plus-trainer/",
+  "description": "A free 11+ practice trainer for UK grammar school entry, with visual non-verbal reasoning, vocabulary, maths, verbal reasoning and timed mock exams.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "en-GB",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
+  "creator": {"@type": "Person", "name": "Sahir Vhora", "url": "https://github.com/SahirVhora"}
+}
+</script>
+<style>
+:root{--ink:#1e2340;--bg:#f4f5fb;--card:#fff;--brand:#5b4fc4;--brand2:#0ea5a4;--soft:#e8e9f7;--good:#16a34a;--bad:#dc2626;--amber:#d97706}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{font-size:1.25rem}
+header .sub{font-size:.8rem;opacity:.9}
+nav{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;background:#fff;border-bottom:1px solid #e2e4f0;position:sticky;top:0;z-index:5}
+nav button{border:1px solid #d8daf0;background:#fff;color:var(--ink);padding:8px 14px;border-radius:20px;cursor:pointer;font-size:.9rem;font-weight:600}
+nav button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+main{max-width:900px;margin:0 auto;padding:18px 14px 60px}
+.card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 2px 8px rgba(30,35,64,.07);margin-bottom:14px}
+h2{font-size:1.15rem;margin-bottom:10px}
+h3{font-size:1rem;margin:12px 0 6px}
+p{line-height:1.5;margin-bottom:8px}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:none;padding:10px 18px;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;margin:4px 6px 4px 0}
+.btn.alt{background:var(--brand2)}
+.btn.ghost{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+.btn:disabled{opacity:.4;cursor:default}
+.qcells{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+.cell{width:92px;height:92px;border:2px solid #c9cce8;border:2px solid #c9cce8;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center}
+.cell.q{border-style:dashed;font-size:2rem;color:var(--brand);font-weight:700}
+.cell svg{width:80px;height:80px}
+.grid3{display:grid;grid-template-columns:repeat(3,92px);gap:8px;justify-content:center;margin:12px 0}
+.opts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.opt{border:2px solid #c9cce8;border-radius:10px;background:#fff;cursor:pointer;padding:8px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:100px;font-size:.95rem;transition:transform .08s}
+.opt:hover{transform:translateY(-2px);border-color:var(--brand)}
+.opt svg{width:74px;height:74px}
+.opt .lab{font-weight:700;color:var(--brand)}
+.opt.correct{border-color:var(--good);background:#f0fdf4}
+.opt.wrong{border-color:var(--bad);background:#fef2f2}
+.opt.text{min-width:140px;padding:12px}
+.feedback{margin-top:12px;padding:12px;border-radius:10px;font-size:.95rem;line-height:1.45}
+.feedback.good{background:#f0fdf4;border:1px solid #bbf7d0}
+.feedback.bad{background:#fef2f2;border:1px solid #fecaca}
+.pill{display:inline-block;background:var(--soft);border-radius:12px;padding:3px 10px;font-size:.78rem;font-weight:600;margin-right:6px}
+.topbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.timer{font-weight:700;font-size:1.05rem;color:var(--brand)}
+.timer.low{color:var(--bad)}
+.qtext{font-size:1.05rem;line-height:1.55;margin:10px 0}
+.passage{background:#fbfbff;border:1px solid #e2e4f0;border-radius:10px;padding:14px;font-size:.95rem;line-height:1.6;margin-bottom:12px;max-height:260px;overflow-y:auto}
+.report td,.report th{padding:6px 10px;text-align:left;border-bottom:1px solid #eee;font-size:.92rem}
+.bar{height:10px;border-radius:5px;background:var(--soft);overflow:hidden;min-width:120px}
+.bar i{display:block;height:100%;background:var(--brand2)}
+.statgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.stat{background:var(--soft);border-radius:10px;padding:12px;text-align:center}
+.stat b{font-size:1.4rem;display:block;color:var(--brand)}
+.home-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.mode-card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(30,35,64,.07);cursor:pointer;border:2px solid transparent}
+.mode-card:hover{border-color:var(--brand)}
+.mode-card .emoji{font-size:1.7rem}
+.mode-card h3{margin:6px 0 4px}
+.mode-card p{font-size:.85rem;color:#555;margin:0}
+.bubble{width:34px;height:34px;border-radius:50%;border:2px solid #aab;display:inline-flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer;margin:0 4px}
+.bubble.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
+.mocknav{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.mocknav button{width:32px;height:32px;border-radius:8px;border:1px solid #ccd;background:#fff;cursor:pointer;font-size:.8rem}
+.mocknav button.done{background:var(--brand2);color:#fff;border-color:var(--brand2)}
+.mocknav button.cur{outline:3px solid var(--brand)}
+.small{font-size:.82rem;color:#666}
+footer{text-align:center;padding:16px;font-size:.8rem;color:#777}
+footer a{color:var(--brand)}
+@media(max-width:520px){.cell{width:72px;height:72px}.cell svg{width:62px;height:62px}.grid3{grid-template-columns:repeat(3,72px)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 11+ Trainer</h1>
+  <span class="sub">Visual NVR · Vocabulary · Unlimited Maths & VR · GL-style Mocks - companion to <a href="https://sahirvhora.github.io/11plus-prep/" style="color:#fff">11Plus Prep</a></span>
+</header>
+<nav id="nav"></nav>
+<main id="main"></main>
+<footer>Free & open - progress is saved on this device only. Built to supplement <a href="https://sahirvhora.github.io/11plus-prep/">11Plus Prep</a>.</footer>
+
+<script>
+"use strict";
+/* ================= utilities ================= */
+const ri=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[ri(0,a.length-1)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=ri(0,i);[a[i],a[j]]=[a[j],a[i]];}return a;};
+const uniqPush=(arr,v,eq)=>{if(!arr.some(x=>eq?eq(x,v):x===v))arr.push(v);return arr;};
+const LETTERS="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const store={
+  get(k,d){try{const v=localStorage.getItem("t11_"+k);return v?JSON.parse(v):d;}catch(e){return d;}},
+  set(k,v){try{localStorage.setItem("t11_"+k,JSON.stringify(v));}catch(e){}}
+};
+function recordStat(subject,topic,correct){
+  const s=store.get("stats",{});
+  const key=subject+"|"+topic;
+  s[key]=s[key]||{c:0,t:0};
+  s[key].t++; if(correct)s[key].c++;
+  store.set("stats",s);
+}
+/* ================= SVG shape library ================= */
+const SVG_DEFS=`<defs>
+<pattern id="pdots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.7" fill="#334"/></pattern>
+<pattern id="phatch" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,8 L8,0" stroke="#334" stroke-width="1.6"/></pattern>
+</defs>`;
+const FILLS={none:"#ffffff",black:"#2b2f4a",grey:"#b8bcd6",dots:"url(#pdots)",hatch:"url(#phatch)"};
+function ngonPts(n,r,rot=-90){
+  const pts=[];
+  for(let i=0;i<n;i++){const a=(rot+i*360/n)*Math.PI/180;pts.push((50+r*Math.cos(a)).toFixed(1)+","+(50+r*Math.sin(a)).toFixed(1));}
+  return pts.join(" ");
+}
+function starPts(points,rOut,rIn){
+  const pts=[];
+  for(let i=0;i<points*2;i++){const r=i%2===0?rOut:rIn;const a=(-90+i*180/points)*Math.PI/180;pts.push((50+r*Math.cos(a)).toFixed(1)+","+(50+r*Math.sin(a)).toFixed(1));}
+  return pts.join(" ");
+}
+/* kind: circle square triangle pentagon hexagon star diamond arrow flag ; size: 0.6-1 ; fill key ; rot deg */
+function shapeSVG(s){
+  const sz=s.size||1, fill=FILLS[s.fill||"none"], rot=s.rot||0, sw=3;
+  let el="";
+  const r=36*sz;
+  switch(s.kind){
+    case "circle": el=`<circle cx="50" cy="50" r="${r}" />`;break;
+    case "square": el=`<rect x="${50-r*0.9}" y="${50-r*0.9}" width="${r*1.8}" height="${r*1.8}" />`;break;
+    case "diamond": el=`<polygon points="${ngonPts(4,r)}" />`;break;
+    case "triangle": el=`<polygon points="${ngonPts(3,r)}" />`;break;
+    case "pentagon": el=`<polygon points="${ngonPts(5,r)}" />`;break;
+    case "hexagon": el=`<polygon points="${ngonPts(6,r)}" />`;break;
+    case "star": el=`<polygon points="${starPts(5,r,r*0.45)}" />`;break;
+    case "arrow": el=`<polygon points="50,${50-r} ${50+r*0.62},${50+r*0.15} ${50+r*0.25},${50+r*0.15} ${50+r*0.25},${50+r} ${50-r*0.25},${50+r} ${50-r*0.25},${50+r*0.15} ${50-r*0.62},${50+r*0.15}" />`;break;
+    case "flag": el=`<polygon points="${50-r*0.5},${50-r} ${50+r*0.7},${50-r*0.55} ${50-r*0.1},${50-r*0.15} ${50-r*0.1},${50+r} ${50-r*0.5},${50+r}" />`;break;
+  }
+  return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">${SVG_DEFS}<g transform="rotate(${rot},50,50)" fill="${fill}" stroke="#2b2f4a" stroke-width="${sw}" stroke-linejoin="round">${el}</g></svg>`;
+}
+const shapeEq=(a,b)=>a.kind===b.kind&&(a.fill||"none")===(b.fill||"none")&&Math.round(((a.rot||0)%360+360)%360)===Math.round(((b.rot||0)%360+360)%360)&&Math.abs((a.size||1)-(b.size||1))<0.05;
+const SHAPES=["circle","square","triangle","pentagon","hexagon","star","diamond"];
+const ASYM=["arrow","flag"];
+const FILLKEYS=["none","black","grey","dots","hatch"];
+/* ================= NVR generators ================= */
+function optionsFrom(answer,makeDistractor){
+  const opts=[answer];
+  let guard=0;
+  while(opts.length<5&&guard++<60){uniqPush(opts,makeDistractor(),shapeEq);}
+  const shuffled=shuffle(opts);
+  return {opts:shuffled,answerIdx:shuffled.findIndex(o=>shapeEq(o,answer))};
+}
+function nvrSeries(){
+  const mode=pick(["rot","size","shade","shape"]);
+  const base={kind:pick(SHAPES.concat(ASYM)),fill:pick(FILLKEYS),size:0.9,rot:0};
+  let cells=[],answer,expl;
+  if(mode==="rot"){
+    const k=pick(ASYM), step=pick([45,90]);
+    for(let i=0;i<4;i++)cells.push({kind:k,fill:base.fill,size:0.9,rot:i*step});
+    answer={kind:k,fill:base.fill,size:0.9,rot:4*step};
+    expl=`The shape rotates ${step}° clockwise each time, so the next turn gives the answer.`;
+  }else if(mode==="size"){
+    const sizes=[0.55,0.7,0.85,1.0,1.15],dir=pick([1,-1]);
+    const seq=dir===1?sizes:sizes.slice().reverse();
+    for(let i=0;i<4;i++)cells.push({kind:base.kind,fill:base.fill,size:seq[i]});
+    answer={kind:base.kind,fill:base.fill,size:seq[4]};
+    expl=`The shape gets steadily ${dir===1?"bigger":"smaller"} each time.`;
+  }else if(mode==="shade"){
+    const cyc=shuffle(FILLKEYS).slice(0,3);
+    for(let i=0;i<4;i++)cells.push({kind:base.kind,fill:cyc[i%3],size:0.9});
+    answer={kind:base.kind,fill:cyc[4%3],size:0.9};
+    expl=`The shading repeats in a cycle of three; the fifth shape matches the second.`;
+  }else{
+    const order=shuffle(SHAPES).slice(0,3);
+    for(let i=0;i<4;i++)cells.push({kind:order[i%3],fill:base.fill,size:0.9});
+    answer={kind:order[4%3],fill:base.fill,size:0.9};
+    expl=`The shapes repeat in a cycle of three (${order.join(", ")}).`;
+  }
+  const {opts,answerIdx}=optionsFrom(answer,()=>{
+    const d={...answer};
+    const t=ri(1,3);
+    if(t===1)d.rot=(answer.rot||0)+pick([45,90,180]);
+    else if(t===2)d.fill=pick(FILLKEYS);
+    else d.kind=pick(SHAPES.concat(ASYM));
+    return d;
+  });
+  return {type:"series",topic:"shape-series",cells,opts,answerIdx,expl,prompt:"Which shape comes next in the series?"};
+}
+function nvrMatrix(){
+  const mode=pick(["fillCols","rotCols","sizeCols"]);
+  /* for rotation columns, only use shapes that look different when rotated 90° */
+  const rows=mode==="rotCols"?shuffle(["arrow","flag","triangle"]):shuffle(SHAPES).slice(0,3);
+  const fills=shuffle(FILLKEYS).slice(0,3);
+  const grid=[];
+  for(let r=0;r<3;r++)for(let c=0;c<3;c++){
+    const cell={kind:rows[r],fill:mode==="fillCols"?fills[c]:fills[r],size:mode==="sizeCols"?[0.6,0.85,1.1][c]:0.9,rot:mode==="rotCols"?c*90:0};
+    grid.push(cell);
+  }
+  const answer=grid[8];
+  const {opts,answerIdx}=optionsFrom(answer,()=>{
+    const d={...answer};const t=ri(1,4);
+    if(t===1)d.kind=pick(SHAPES);
+    else if(t===2)d.fill=pick(FILLKEYS);
+    else if(t===3)d.rot=(answer.rot||0)+90;
+    else d.size=(answer.size||0.9)>0.8?0.6:1.1;
+    return d;
+  });
+  const explMap={fillCols:"Each row keeps the same shape and each column keeps the same shading.",rotCols:"Each row keeps the same shape; across each row the shape rotates 90° per column.",sizeCols:"Each row keeps the same shape; across each row the shape grows per column."};
+  return {type:"matrix",topic:"matrix-patterns",grid:grid.slice(0,8),opts,answerIdx,expl:explMap[mode],prompt:"Which shape completes the grid?"};
+}
+function nvrRotation(){
+  const kind=pick(ASYM), fill=pick(FILLKEYS);
+  const baseRot=ri(0,3)*90;
+  const target={kind,fill,size:0.9,rot:baseRot};
+  const rotBy=pick([90,180,270]);
+  const answer={kind,fill,size:0.9,rot:baseRot+rotBy};
+  const {opts,answerIdx}=optionsFrom(answer,()=>{
+    const d={...answer};const t=ri(1,3);
+    if(t===1){d.rot=baseRot+pick([90,180,270]);}
+    else if(t===2){d.kind=kind;d.fill=pick(FILLKEYS.filter(f=>f!==fill));}
+    else {d.rot=baseRot;}
+    return d;
+  });
+  return {type:"single",topic:"rotations",cells:[target],opts,answerIdx,expl:`The answer is the same shape turned ${rotBy}° clockwise - same shading, nothing flipped.`,prompt:`Which option shows this shape rotated ${rotBy}°?`};
+}
+function nvrOddOneOut(){
+  const mode=pick(["fill","kind","size"]);
+  let items=[];
+  if(mode==="fill"){
+    const f=pick(FILLKEYS), other=pick(FILLKEYS.filter(x=>x!==f));
+    const kinds=shuffle(SHAPES).slice(0,5);
+    items=kinds.map(k=>({kind:k,fill:f,size:0.9}));
+    items[ri(0,4)].fill=other;
+  }else if(mode==="kind"){
+    const sided=[["triangle",3],["square",4],["diamond",4],["pentagon",5],["hexagon",6]];
+    const four=sided.filter(s=>s[1]===4);
+    const others=shuffle(sided.filter(s=>s[1]!==4)).slice(0,1);
+    const f=pick(FILLKEYS);
+    items=[{kind:"square",fill:f,size:0.9},{kind:"diamond",fill:f,size:0.9},{kind:"square",fill:f,size:0.7,rot:20},{kind:"diamond",fill:f,size:1.05,rot:15},{kind:others[0][0],fill:f,size:0.9}];
+    items=shuffle(items);
+  }else{
+    const k=pick(SHAPES), f=pick(FILLKEYS);
+    items=[0,1,2,3,4].map(()=>({kind:k,fill:f,size:0.85}));
+    items[ri(0,4)].size=1.2;
+  }
+  let oddIdx;
+  if(mode==="fill"){const counts={};items.forEach(i=>counts[i.fill]=(counts[i.fill]||0)+1);oddIdx=items.findIndex(i=>counts[i.fill]===1);}
+  else if(mode==="kind"){oddIdx=items.findIndex(i=>i.kind!=="square"&&i.kind!=="diamond");}
+  else{oddIdx=items.findIndex(i=>i.size>1);}
+  const explMap={fill:"Four shapes share the same shading; one is shaded differently.",kind:"Four shapes are four-sided; one has a different number of sides.",size:"Four shapes are the same size; one is larger."};
+  return {type:"odd",topic:"odd-shape-out",opts:items,answerIdx:oddIdx,expl:explMap[mode],prompt:"Which shape is the odd one out?"};
+}
+function nvrReflection(){
+  /* only the flag is asymmetric under a vertical mirror at every rotation */
+  const kind="flag", fill=pick(FILLKEYS), rot=pick([0,90,180,270]);
+  const target={kind,fill,size:0.9,rot};
+  /* reflection rendered via scale(-1,1) flag */
+  const answer={kind,fill,size:0.9,rot,flip:true};
+  const opts=[answer,{kind,fill,size:0.9,rot:rot+180},{kind,fill,size:0.9,rot},{kind,fill:pick(FILLKEYS.filter(f=>f!==fill)),size:0.9,rot,flip:true},{kind,fill,size:0.9,rot:rot+90}];
+  const shuffled=shuffle(opts);
+  return {type:"single",topic:"reflections",cells:[target],opts:shuffled,answerIdx:shuffled.indexOf(answer),expl:"A mirror image flips left-to-right. A 180° rotation is NOT the same as a reflection - that is the classic trap.",prompt:"Which option shows this shape reflected in a vertical mirror?"};
+}
+function shapeRender(s){
+  if(s.flip){
+    return shapeSVG({...s}).replace('<g transform="','<g transform="translate(100,0) scale(-1,1) ');
+  }
+  return shapeSVG(s);
+}
+const NVR_GENS=[nvrSeries,nvrMatrix,nvrRotation,nvrOddOneOut,nvrReflection];
+/* ================= Maths generators ================= */
+function mkNumOpts(ans,fmt){
+  fmt=fmt||(x=>String(x));
+  const set=[ans];let guard=0;
+  while(set.length<4&&guard++<50){
+    const d=ans+pick([-1,1])*pick([1,2,ri(3,10),Math.max(1,Math.round(Math.abs(ans)*0.1))]);
+    if(!set.includes(d)&&d>=0)set.push(d);
+  }
+  const opts=shuffle(set);
+  return {texts:opts.map(fmt),answerIdx:opts.indexOf(ans)};
+}
+const MATH_GENS=[
+  function(){const a=ri(120,980),b=ri(120,980);const ans=a+b;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} + ${b} = ?`,...o,expl:`Add the units, tens and hundreds columns: ${a} + ${b} = ${ans}.`};},
+  function(){const a=ri(500,999),b=ri(100,499);const ans=a-b;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} − ${b} = ?`,...o,expl:`${a} − ${b} = ${ans}. Check by adding back: ${ans} + ${b} = ${a}.`};},
+  function(){const a=ri(12,29),b=ri(3,9);const ans=a*b;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} × ${b} = ?`,...o,expl:`${a} × ${b} = (${a}×${b-1}) + ${a} = ${ans}, or partition: ${Math.floor(a/10)*10}×${b} + ${a%10}×${b}.`};},
+  function(){const b=ri(3,9),ans=ri(12,25),a=b*ans;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} ÷ ${b} = ?`,...o,expl:`${b} × ${ans} = ${a}, so ${a} ÷ ${b} = ${ans}.`};},
+  function(){const den=pick([4,5,8,10]),num=ri(1,den-1),whole=den*ri(4,12);const ans=whole/den*num;const o=mkNumOpts(ans);return {topic:"fractions",q:`What is ${num}/${den} of ${whole}?`,...o,expl:`${whole} ÷ ${den} = ${whole/den}, then × ${num} = ${ans}.`};},
+  function(){const p=pick([10,20,25,50,75,5]),whole=pick([40,60,80,120,200,240,360]);const ans=whole*p/100;const o=mkNumOpts(ans);return {topic:"percentages",q:`What is ${p}% of ${whole}?`,...o,expl:`10% of ${whole} is ${whole/10}; scale to ${p}% → ${ans}.`};},
+  function(){const a=ri(2,5),b=ri(2,5),total=(a+b)*ri(3,9);const ans=total/(a+b)*a;const o=mkNumOpts(ans);return {topic:"ratio",q:`Share ${total} sweets in the ratio ${a}:${b}. How many does the first person get?`,...o,expl:`${a}+${b}=${a+b} parts. ${total} ÷ ${a+b} = ${total/(a+b)} per part, × ${a} = ${ans}.`};},
+  function(){const x=ri(4,15),k=ri(3,12),c=ri(2,20);const ans=x;const o=mkNumOpts(ans);return {topic:"algebra",q:`If y + ${k} = ${x+k+c} − ${c}, what is y?`,...o,expl:`The right side is ${x+k}. So y = ${x+k} − ${k} = ${x}.`};},
+  function(){const w=ri(4,12),h=ri(3,9);const which=pick(["area","perimeter"]);const ans=which==="area"?w*h:2*(w+h);const o=mkNumOpts(ans);return {topic:"geometry",q:`A rectangle is ${w} cm long and ${h} cm wide. What is its ${which}${which==="area"?" in cm²":" in cm"}?`,...o,expl:which==="area"?`Area = length × width = ${w} × ${h} = ${ans} cm².`:`Perimeter = 2 × (${w} + ${h}) = ${ans} cm.`};},
+  function(){const start=ri(2,9),step=ri(3,9),n=5;const seq=[...Array(4)].map((_,i)=>start+i*step);const ans=start+4*step;const o=mkNumOpts(ans);return {topic:"sequences",q:`What is the next number: ${seq.join(", ")}, ...?`,...o,expl:`The sequence goes up in ${step}s, so next is ${ans}.`};},
+  function(){const h1=ri(7,10),m1=pick([0,15,30,45]),durH=ri(1,3),durM=pick([15,30,45]);let h2=h1+durH,m2=m1+durM;if(m2>=60){m2-=60;h2++;}const fmt=(h,m)=>`${h}:${String(m).padStart(2,"0")}`;const ans=fmt(h2,m2);const wrong=[fmt(h2,(m2+15)%60),fmt(h2-1,m2),fmt(h2,(m2+45)%60)];const opts=shuffle([ans,...wrong]);return {topic:"time",q:`A film starts at ${fmt(h1,m1)} am and lasts ${durH} hour${durH>1?"s":""} ${durM} minutes. When does it finish?`,texts:opts,answerIdx:opts.indexOf(ans),expl:`Add ${durH}h to get ${fmt(h1+durH,m1)}, then ${durM} min → ${ans}.`};},
+  function(){const price=ri(2,8)*10+5,qty=ri(2,4),pay=Math.ceil(price*qty/100)*100;const ans=pay-price*qty;const o=mkNumOpts(ans,x=>x+"p");return {topic:"word-problems",q:`Pencils cost ${price}p each. Misha buys ${qty} and pays with £${pay/100}. How much change does she get?`,...o,expl:`${qty} × ${price}p = ${price*qty}p. Change = ${pay}p − ${price*qty}p = ${ans}p.`};},
+  function(){const kids=ri(24,36),per=ri(4,6);const ans=Math.ceil(kids/per);const o=mkNumOpts(ans);return {topic:"word-problems",q:`${kids} children go on a trip. Each car holds ${per} children. How many cars are needed?`,...o,expl:`${kids} ÷ ${per} = ${(kids/per).toFixed(1)} → round UP: ${ans} cars (you can't leave anyone behind).`};},
+  function(){const nums=[...Array(5)].map(()=>ri(2,20));const ans=Math.round(nums.reduce((a,b)=>a+b)/5);const o=mkNumOpts(ans);return {topic:"data",q:`Find the mean (average) of: ${nums.join(", ")}`,...o,expl:`Sum = ${nums.reduce((a,b)=>a+b)}, divide by 5 → ${ans}.`};},
+  function(){const a=(ri(11,99)/10);const b=(ri(11,99)/10);const ans=Math.round((a+b)*10)/10;const o=mkNumOpts(ans,x=>x.toFixed(1));return {topic:"decimals",q:`${a.toFixed(1)} + ${b.toFixed(1)} = ?`,...o,expl:`Line up the decimal points: ${a.toFixed(1)} + ${b.toFixed(1)} = ${ans.toFixed(1)}.`};}
+];
+/* ================= Verbal reasoning generators ================= */
+const ANALOGY_PAIRS=[["hot","cold"],["big","small"],["fast","slow"],["happy","sad"],["light","dark"],["kitten","cat"],["puppy","dog"],["cub","bear"],["foal","horse"],["author","book"],["artist","painting"],["chef","meal"],["hand","glove"],["foot","shoe"],["head","hat"],["bird","nest"],["bee","hive"],["spider","web"],["teacher","school"],["doctor","hospital"],["actor","stage"],["fish","water"],["camel","desert"],["penguin","ice"]];
+const ODD_WORD_SETS=[
+ {cat:"fruits",words:["apple","banana","mango","pear"],odd:"carrot",oddCat:"a vegetable"},
+ {cat:"vehicles",words:["car","lorry","van","bus"],odd:"garage",oddCat:"a place, not a vehicle"},
+ {cat:"emotions",words:["joy","anger","fear","sorrow"],odd:"table",oddCat:"an object, not an emotion"},
+ {cat:"birds",words:["robin","sparrow","eagle","owl"],odd:"bat",oddCat:"a mammal, not a bird"},
+ {cat:"instruments",words:["violin","flute","piano","drum"],odd:"orchestra",oddCat:"a group, not an instrument"},
+ {cat:"metals",words:["iron","copper","silver","gold"],odd:"glass",oddCat:"not a metal"},
+ {cat:"rivers flow",words:["stream","river","brook","creek"],odd:"lake",oddCat:"still water, not flowing"},
+ {cat:"footwear",words:["boot","sandal","trainer","slipper"],odd:"scarf",oddCat:"worn on the neck, not feet"},
+ {cat:"insects",words:["ant","beetle","wasp","moth"],odd:"worm",oddCat:"not an insect (no legs, not six-legged)"},
+ {cat:"weather",words:["drizzle","downpour","shower","rain"],odd:"puddle",oddCat:"a result of rain, not rainfall"},
+ {cat:"tools",words:["hammer","saw","drill","spanner"],odd:"nail",oddCat:"a fastener, not a tool"},
+ {cat:"seas move",words:["ocean","sea","gulf","bay"],odd:"island",oddCat:"land, not water"}
+];
+const VR_GENS=[
+  function(){ /* letter series */
+    const step=pick([1,2,3,-1,-2]);const start=ri(0,25-Math.max(0,step*5));
+    const seq=[...Array(4)].map((_,i)=>LETTERS[(start+i*step+52)%26]);
+    const ans=LETTERS[(start+4*step+52)%26];
+    const opts=shuffle([ans,LETTERS[(start+4*step+1+52)%26],LETTERS[(start+4*step-1+52)%26],LETTERS[(start+5*step+52)%26]].filter((v,i,a)=>a.indexOf(v)===i)).slice(0,4);
+    if(!opts.includes(ans))opts[0]=ans;
+    return {topic:"letter-series",q:`What letter comes next: ${seq.join(", ")}, ...?`,texts:opts,answerIdx:opts.indexOf(ans),expl:`Each letter moves ${Math.abs(step)} place${Math.abs(step)>1?"s":""} ${step>0?"forward":"back"} in the alphabet.`};
+  },
+  function(){ /* number series */
+    const mode=pick(["add","alt","double","square"]);
+    let seq,ans,expl;
+    if(mode==="add"){const s=ri(2,9),st=ri(2,7);seq=[s,s+st,s+2*st,s+3*st];ans=s+4*st;expl=`The numbers go up in ${st}s.`;}
+    else if(mode==="alt"){const s=ri(3,10),a=ri(2,5),b=ri(6,9);seq=[s,s+a,s+a+b,s+2*a+b];ans=s+2*a+2*b;expl=`The steps alternate: +${a}, +${b}, +${a}, +${b}.`;}
+    else if(mode==="double"){const s=ri(2,5);seq=[s,s*2,s*4,s*8];ans=s*16;expl=`Each number doubles.`;}
+    else{const s=ri(1,4);seq=[s*s,(s+1)*(s+1),(s+2)*(s+2),(s+3)*(s+3)];ans=(s+4)*(s+4);expl=`These are square numbers: ${s}², ${s+1}², ${s+2}²...`;}
+    const o=mkNumOpts(ans);
+    return {topic:"number-series",q:`What comes next: ${seq.join(", ")}, ...?`,...o,expl};
+  },
+  function(){ /* word code (Caesar shift) */
+    const words=["CAT","DOG","SUN","MAP","PEN","BUS","HAT","LOG","RAT","CUP"];
+    const w1=pick(words);let w2=pick(words.filter(w=>w!==w1));
+    const shift=ri(1,4);
+    const code=w=>w.split("").map(ch=>LETTERS[(LETTERS.indexOf(ch)+shift)%26]).join("");
+    const ans=code(w2);
+    const opts=shuffle([ans,code(w2).split("").reverse().join(""),w2.split("").map(ch=>LETTERS[(LETTERS.indexOf(ch)+shift+1)%26]).join(""),w2.split("").map(ch=>LETTERS[(LETTERS.indexOf(ch)-shift+26)%26]).join("")].filter((v,i,a)=>a.indexOf(v)===i));
+    return {topic:"word-codes",q:`If the code for ${w1} is ${code(w1)}, what is the code for ${w2}?`,texts:opts,answerIdx:opts.indexOf(ans),expl:`Each letter moves ${shift} place${shift>1?"s":""} forward in the alphabet.`};
+  },
+  function(){ /* analogy */
+    const [p1,p2]=pick(ANALOGY_PAIRS);
+    let [q1,q2]=pick(ANALOGY_PAIRS.filter(p=>p[0]!==p1));
+    const wrongs=shuffle(ANALOGY_PAIRS.filter(p=>p[1]!==q2).map(p=>p[1])).slice(0,3);
+    const opts=shuffle([q2,...wrongs]);
+    return {topic:"word-analogies",q:`${p1.toUpperCase()} is to ${p2.toUpperCase()} as ${q1.toUpperCase()} is to ...?`,texts:opts,answerIdx:opts.indexOf(q2),expl:`The relationship between "${p1}" and "${p2}" matches "${q1}" and "${q2}".`};
+  },
+  function(){ /* odd word out */
+    const s=pick(ODD_WORD_SETS);
+    const four=shuffle(s.words).slice(0,4);
+    const opts=shuffle([...four,s.odd]);
+    return {topic:"odd-one-out",q:`Which word is the odd one out?`,texts:opts,answerIdx:opts.indexOf(s.odd),expl:`The others are all ${s.cat}; "${s.odd}" is ${s.oddCat}.`};
+  },
+  function(){ /* hidden word */
+    const hidden=[["The clown ate rice quickly.","water","own ate → clOWN ATEr? Look at 'ate rice' → atE RICe hides ERIC? Let's use simpler."]];
+    /* simpler robust construction: pick 3-letter word, embed across two words */
+    const threes=["ten","hat","ear","arm","tea","rat","pin","sea","ice","ant"];
+    const w=pick(threes);
+    const carriers={ten:"He of[ten] naps",hat:"a hot afternoon",ear:"a clear answer",arm:"a warm evening",tea:"instead of walking",rat:"a strategic move",pin:"a spinning wheel",sea:"please arrive early",ice:"a nice evening",ant:"an elegant answer"};
+    const sentMap={ten:"He often naps after lunch.",hat:"It was that hot afternoon again.",ear:"She gave a clear answer.",arm:"They enjoyed a warm evening.",tea:"He cycled instead of walking.",rat:"It was a strategic move.",pin:"The spinning wheel turned fast.",sea:"Please arrive early today.",ice:"We had a nice evening.",ant:"She gave an elegant answer."};
+    const opts=shuffle([w,...shuffle(threes.filter(t=>t!==w)).slice(0,3)]);
+    return {topic:"hidden-words",q:`A three-letter word is hidden inside this sentence (across or within words): "${sentMap[w]}" Which word is it?`,texts:opts,answerIdx:opts.indexOf(w),expl:`Look inside: ${carriers[w]} - the letters ${w.toUpperCase()} appear in order.`};
+  }
+];
+/* ================= Vocabulary bank (11+ level) ================= */
+const VOCAB=[
+{w:"abundant",d:"existing in large quantities",s:["plentiful","ample"],a:["scarce","sparse"]},
+{w:"benevolent",d:"kind and generous",s:["kindly","charitable"],a:["cruel","spiteful"]},
+{w:"candid",d:"truthful and direct",s:["frank","honest"],a:["deceitful","evasive"]},
+{w:"diligent",d:"hard-working and careful",s:["industrious","conscientious"],a:["lazy","careless"]},
+{w:"eloquent",d:"fluent and persuasive in speech",s:["articulate","expressive"],a:["inarticulate","tongue-tied"]},
+{w:"frugal",d:"careful with money; sparing",s:["thrifty","economical"],a:["wasteful","extravagant"]},
+{w:"gullible",d:"easily tricked or fooled",s:["naive","credulous"],a:["sceptical","shrewd"]},
+{w:"hostile",d:"unfriendly and aggressive",s:["antagonistic","unfriendly"],a:["friendly","welcoming"]},
+{w:"immense",d:"extremely large",s:["vast","enormous"],a:["tiny","minute"]},
+{w:"jovial",d:"cheerful and friendly",s:["merry","jolly"],a:["gloomy","sullen"]},
+{w:"keen",d:"eager and enthusiastic",s:["eager","avid"],a:["reluctant","indifferent"]},
+{w:"lament",d:"to express grief or sorrow",s:["mourn","grieve"],a:["celebrate","rejoice"]},
+{w:"meagre",d:"small in quantity; barely enough",s:["scanty","paltry"],a:["abundant","generous"]},
+{w:"novel",d:"new and original",s:["fresh","innovative"],a:["familiar","old-fashioned"]},
+{w:"obstinate",d:"stubbornly refusing to change",s:["stubborn","headstrong"],a:["flexible","obliging"]},
+{w:"perilous",d:"full of danger",s:["hazardous","risky"],a:["safe","secure"]},
+{w:"quaint",d:"attractively old-fashioned",s:["charming","picturesque"],a:["modern","ordinary"]},
+{w:"reluctant",d:"unwilling and hesitant",s:["hesitant","unwilling"],a:["eager","willing"]},
+{w:"scarce",d:"in short supply",s:["rare","sparse"],a:["plentiful","abundant"]},
+{w:"tedious",d:"boring and too long",s:["dull","monotonous"],a:["exciting","gripping"]},
+{w:"utter",d:"complete; total",s:["absolute","sheer"],a:["partial","slight"]},
+{w:"vivid",d:"producing strong, clear images",s:["graphic","striking"],a:["dull","vague"]},
+{w:"wary",d:"cautious about danger",s:["cautious","guarded"],a:["reckless","trusting"]},
+{w:"zealous",d:"filled with enthusiasm",s:["fervent","passionate"],a:["apathetic","half-hearted"]},
+{w:"arduous",d:"requiring great effort",s:["gruelling","strenuous"],a:["easy","effortless"]},
+{w:"brisk",d:"quick and energetic",s:["lively","swift"],a:["sluggish","leisurely"]},
+{w:"concur",d:"to agree",s:["agree","assent"],a:["disagree","dissent"]},
+{w:"dormant",d:"temporarily inactive",s:["inactive","sleeping"],a:["active","awake"]},
+{w:"exquisite",d:"extremely beautiful or delicate",s:["beautiful","elegant"],a:["ugly","crude"]},
+{w:"feeble",d:"weak; lacking strength",s:["frail","weak"],a:["strong","sturdy"]},
+{w:"genuine",d:"real; not fake",s:["authentic","true"],a:["fake","counterfeit"]},
+{w:"humble",d:"modest; not proud",s:["modest","unassuming"],a:["arrogant","boastful"]},
+{w:"idle",d:"not working; lazy",s:["inactive","unoccupied"],a:["busy","industrious"]},
+{w:"jubilant",d:"feeling great joy and triumph",s:["overjoyed","elated"],a:["miserable","dejected"]},
+{w:"luminous",d:"giving off light; glowing",s:["radiant","glowing"],a:["dark","dim"]},
+{w:"mimic",d:"to imitate someone or something",s:["imitate","copy"],a:["invent","originate"]},
+{w:"nimble",d:"quick and light in movement",s:["agile","sprightly"],a:["clumsy","awkward"]},
+{w:"obsolete",d:"no longer in use; outdated",s:["outdated","antiquated"],a:["current","modern"]},
+{w:"placid",d:"calm and peaceful",s:["tranquil","serene"],a:["agitated","stormy"]},
+{w:"queue",d:"a line of waiting people",s:["line","file"],a:["scatter","crowd"]},
+{w:"rigid",d:"stiff; not bending",s:["stiff","inflexible"],a:["flexible","pliable"]},
+{w:"solemn",d:"serious and dignified",s:["grave","earnest"],a:["cheerful","light-hearted"]},
+{w:"thrive",d:"to grow or develop well",s:["flourish","prosper"],a:["wither","fail"]},
+{w:"unanimous",d:"agreed by everyone",s:["united","undivided"],a:["divided","split"]},
+{w:"vacant",d:"empty; unoccupied",s:["empty","unoccupied"],a:["occupied","full"]},
+{w:"weary",d:"very tired",s:["exhausted","fatigued"],a:["energetic","refreshed"]},
+{w:"yearn",d:"to long for something deeply",s:["long","crave"],a:["dread","dislike"]},
+{w:"ample",d:"more than enough",s:["plentiful","generous"],a:["insufficient","meagre"]},
+{w:"bewildered",d:"very confused",s:["baffled","perplexed"],a:["certain","enlightened"]},
+{w:"coarse",d:"rough in texture or manner",s:["rough","crude"],a:["smooth","refined"]},
+{w:"dwindle",d:"to gradually become smaller",s:["shrink","diminish"],a:["grow","increase"]},
+{w:"envious",d:"wanting what someone else has",s:["jealous","covetous"],a:["content","satisfied"]},
+{w:"fickle",d:"changing loyalties often",s:["changeable","capricious"],a:["loyal","constant"]},
+{w:"grave",d:"very serious",s:["serious","severe"],a:["trivial","minor"]},
+{w:"hasty",d:"done in a hurry, without care",s:["rushed","impulsive"],a:["careful","deliberate"]},
+{w:"intrepid",d:"fearless and adventurous",s:["fearless","daring"],a:["cowardly","timid"]},
+{w:"jeer",d:"to mock or shout insults",s:["mock","taunt"],a:["applaud","praise"]},
+{w:"kindle",d:"to light or stir up",s:["ignite","arouse"],a:["extinguish","quench"]},
+{w:"loathe",d:"to hate intensely",s:["detest","despise"],a:["adore","cherish"]},
+{w:"mundane",d:"ordinary and dull",s:["ordinary","routine"],a:["extraordinary","remarkable"]},
+{w:"notion",d:"an idea or belief",s:["idea","concept"],a:["fact","certainty"]},
+{w:"ominous",d:"suggesting something bad will happen",s:["threatening","sinister"],a:["promising","reassuring"]},
+{w:"peculiar",d:"strange or unusual",s:["odd","curious"],a:["normal","ordinary"]},
+{w:"quiver",d:"to shake slightly",s:["tremble","shiver"],a:["steady","still"]},
+{w:"resilient",d:"able to recover quickly",s:["tough","hardy"],a:["fragile","delicate"]},
+{w:"sincere",d:"honest and genuine in feeling",s:["genuine","heartfelt"],a:["insincere","false"]},
+{w:"tranquil",d:"calm and quiet",s:["peaceful","serene"],a:["noisy","turbulent"]},
+{w:"urge",d:"to strongly encourage",s:["encourage","press"],a:["discourage","deter"]},
+{w:"vain",d:"too proud of oneself; useless",s:["conceited","futile"],a:["modest","effective"]},
+{w:"wretched",d:"in a very unhappy state",s:["miserable","pitiful"],a:["happy","fortunate"]},
+{w:"abrupt",d:"sudden and unexpected",s:["sudden","sharp"],a:["gradual","gentle"]},
+{w:"baffle",d:"to totally confuse",s:["puzzle","confound"],a:["clarify","enlighten"]},
+{w:"cunning",d:"clever at deceiving",s:["sly","crafty"],a:["honest","straightforward"]},
+{w:"drowsy",d:"sleepy and slow",s:["sleepy","lethargic"],a:["alert","wide-awake"]},
+{w:"eerie",d:"strange and frightening",s:["spooky","uncanny"],a:["normal","comforting"]},
+{w:"flimsy",d:"weak and easily broken",s:["fragile","insubstantial"],a:["sturdy","robust"]},
+{w:"gleeful",d:"full of delight",s:["delighted","gleaming with joy"],a:["mournful","glum"]},
+{w:"hoard",d:"to store away in secret",s:["stockpile","amass"],a:["distribute","squander"]},
+{w:"inevitable",d:"certain to happen",s:["unavoidable","certain"],a:["avoidable","uncertain"]},
+{w:"jagged",d:"with sharp, uneven edges",s:["ragged","spiky"],a:["smooth","even"]},
+{w:"linger",d:"to stay longer than necessary",s:["remain","dawdle"],a:["depart","hurry"]},
+{w:"murky",d:"dark and gloomy; unclear",s:["cloudy","dim"],a:["clear","bright"]},
+{w:"nuisance",d:"a person or thing causing annoyance",s:["pest","bother"],a:["delight","pleasure"]},
+{w:"optimistic",d:"hopeful about the future",s:["hopeful","positive"],a:["pessimistic","gloomy"]},
+{w:"ponder",d:"to think about carefully",s:["consider","reflect"],a:["ignore","dismiss"]},
+{w:"reckless",d:"without thought for danger",s:["rash","careless"],a:["careful","cautious"]},
+{w:"summit",d:"the highest point",s:["peak","top"],a:["base","foot"]},
+{w:"timid",d:"shy and easily frightened",s:["shy","fearful"],a:["bold","confident"]},
+{w:"vague",d:"unclear or imprecise",s:["unclear","hazy"],a:["precise","definite"]},
+{w:"withered",d:"dried up and shrunken",s:["shrivelled","wilted"],a:["fresh","blooming"]}
+];
+/* ================= Comprehension passages ================= */
+const PASSAGES=[
+{title:"The Lighthouse Keeper",text:`Elsie had lived at Craggan Point lighthouse for eleven years, and in all that time she had never once slept through a storm. The tower seemed to hum when the wind rose, a low, mournful note that travelled up through the spiral staircase and into her small room at the top. On the night of the great gale, she climbed the one hundred and four steps twice before midnight - once to trim the lamp, and once because she was certain she had seen, in the brief flare of lightning, a small fishing boat struggling beyond the reef. Nobody else would have noticed it. But Elsie had spent years learning to read the sea the way other people read books, and what she read that night made her reach for the signal rockets with steady, practised hands.`,
+qs:[
+{q:"How long had Elsie lived at the lighthouse?",o:["Four years","Eleven years","Twenty years","One hundred and four years"],a:1,e:"The first sentence says she had lived there for eleven years."},
+{q:"What does the tower do when the wind rises?",o:["It sways dangerously","It hums with a low note","It goes dark","It creaks loudly"],a:1,e:"The passage says the tower 'seemed to hum... a low, mournful note'."},
+{q:"Why did Elsie climb the steps the second time?",o:["To trim the lamp","She heard a knock","She thought she saw a boat in trouble","To fetch her book"],a:2,e:"She was 'certain she had seen... a small fishing boat struggling beyond the reef'."},
+{q:"The phrase 'read the sea the way other people read books' suggests Elsie...",o:["enjoyed reading novels","understood the sea through long experience","could not read well","preferred the sea to people"],a:1,e:"It is a simile showing her expert, practised understanding of the sea."},
+{q:"The word 'practised' in the final sentence is closest in meaning to...",o:["nervous","rehearsed and skilled","slow","trembling"],a:1,e:"'Practised hands' means hands made skilful by experience."}
+]},
+{title:"Ants: The Tiny Engineers",text:`An ant weighs almost nothing - five million of them together weigh less than a large dog - yet as a group they move more earth than any other animal except humans. Leafcutter ants farm their own food, snipping leaves they cannot actually eat and carrying them underground to feed a fungus, which they harvest instead. Weaver ants build nests by pulling leaves together and 'gluing' them with silk produced by their own larvae, which workers hold and squeeze gently like tubes of glue. Perhaps most remarkably, some ants keep 'livestock': they protect herds of aphids from predators and, in return, drink the sweet honeydew the aphids produce. Scientists who study ant colonies describe them as a single 'superorganism' - thousands of bodies behaving like one animal with one purpose.`,
+qs:[
+{q:"What do leafcutter ants actually eat?",o:["Leaves","A fungus they grow","Aphids","Silk"],a:1,e:"They feed leaves to a fungus 'which they harvest instead'."},
+{q:"How do weaver ants stick leaves together?",o:["With mud","With honeydew","With silk from their larvae","With chewed leaves"],a:2,e:"They use 'silk produced by their own larvae'."},
+{q:"What do ants get from protecting aphids?",o:["Honeydew to drink","Leaves","Shelter in winter","Help with digging"],a:0,e:"In return they 'drink the sweet honeydew the aphids produce'."},
+{q:"Why are colonies called a 'superorganism'?",o:["Because ants are unusually strong","Because thousands of ants act like one animal","Because they are larger than most insects","Because they live underground"],a:1,e:"The last sentence: 'thousands of bodies behaving like one animal with one purpose'."},
+{q:"Which word best describes the author's attitude to ants?",o:["Fearful","Admiring","Bored","Suspicious"],a:1,e:"Words like 'remarkably' and 'tiny engineers' show admiration."}
+]}
+];
+/* ================= Spaced repetition (Leitner) ================= */
+const SR_INTERVALS=[0,1,3,7,16,30]; /* days per box */
+function today(){return Math.floor(Date.now()/86400000);}
+function srState(){return store.get("vocabSR",{});}
+function dueWords(){
+  const st=srState();
+  const due=VOCAB.filter(v=>{const e=st[v.w];return !e||(today()-e.last)>=SR_INTERVALS[Math.min(e.box,5)];});
+  return shuffle(due);
+}
+function srUpdate(word,correct){
+  const st=srState();
+  const e=st[word]||{box:0,last:0,seen:0,right:0};
+  e.box=correct?Math.min(e.box+1,5):Math.max(e.box-1,0);
+  e.last=today(); e.seen++; if(correct)e.right++;
+  st[word]=e; store.set("vocabSR",st);
+}
+function fillOpts(correct,pool,extra){
+  /* build 4 unique options containing `correct`; `extra` items are preferred distractors */
+  const opts=[correct];
+  (extra||[]).concat(shuffle(pool)).forEach(c=>{if(opts.length<4&&c&&!opts.includes(c))opts.push(c);});
+  return shuffle(opts);
+}
+function vocabQuestion(v){
+  const mode=pick(["syn","ant","def"]);
+  const others=shuffle(VOCAB.filter(x=>x.w!==v.w));
+  const pool=others.flatMap(o=>[o.s[0],o.a[0]]);
+  if(mode==="syn"){
+    const opts=fillOpts(v.s[0],pool.filter(x=>x!==v.a[0]&&x!==v.a[1]),[]);
+    return {q:`Which word is closest in meaning to "${v.w.toUpperCase()}"?`,texts:opts,answerIdx:opts.indexOf(v.s[0]),expl:`"${v.w}" means ${v.d} - closest is "${v.s[0]}". (Opposite: ${v.a[0]}.)`,topic:"synonyms"};
+  }
+  if(mode==="ant"){
+    const opts=fillOpts(v.a[0],pool.filter(x=>x!==v.s[0]&&x!==v.s[1]),[v.s[0]]);
+    return {q:`Which word is most OPPOSITE in meaning to "${v.w.toUpperCase()}"?`,texts:opts,answerIdx:opts.indexOf(v.a[0]),expl:`"${v.w}" means ${v.d}, so the opposite is "${v.a[0]}". Careful: "${v.s[0]}" is a synonym - the classic trap.`,topic:"antonyms"};
+  }
+  const opts=fillOpts(v.w,others.map(o=>o.w),[]);
+  return {q:`Which word means: "${v.d}"?`,texts:opts,answerIdx:opts.indexOf(v.w),expl:`"${v.w}" = ${v.d}. Synonyms: ${v.s.join(", ")}.`,topic:"definitions"};
+}
+/* ================= UI framework ================= */
+const nav=document.getElementById("nav"), main=document.getElementById("main");
+const TABS=[["home","🏠 Home"],["nvr","🔷 NVR"],["vocab","📖 Vocabulary"],["maths","🔢 Maths"],["verbal","🔤 Verbal"],["mock","⏱️ Mock Exam"],["progress","📊 Progress"]];
+let mockTimerHandle=null;
+function setTab(id){
+  if(mockTimerHandle&&id!=="mock"){ if(!confirm("Leave the mock exam? Your timer will keep running until you submit or leave.")) return; clearInterval(mockTimerHandle); mockTimerHandle=null; }
+  nav.querySelectorAll("button").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
+  VIEWS[id]();
+}
+TABS.forEach(([id,label])=>{
+  const b=document.createElement("button");
+  b.textContent=label;b.dataset.id=id;b.onclick=()=>setTab(id);
+  nav.appendChild(b);
+});
+function el(html){const d=document.createElement("div");d.innerHTML=html;return d;}
+/* ---- generic practice session runner ---- */
+function runSession(opts){
+  /* opts: {title, subject, nextQuestion():q, total, onWordResult?} - q:{prompt/q, cells?, grid?, opts(shapes) or texts, answerIdx, expl, topic} */
+  let idx=0, score=0;
+  function renderQ(){
+    const q=opts.nextQuestion();
+    if(!q){finish();return;}
+    let inner=`<div class="topbar"><h2>${opts.title}</h2><span class="pill">Question ${idx+1} of ${opts.total}</span></div>`;
+    inner+=`<p class="qtext">${q.prompt||q.q}</p>`;
+    if(q.grid){
+      inner+=`<div class="grid3">${q.grid.map(s=>`<div class="cell">${shapeRender(s)}</div>`).join("")}<div class="cell q">?</div></div>`;
+    }else if(q.cells){
+      inner+=`<div class="qcells">${q.cells.map(s=>`<div class="cell">${shapeRender(s)}</div>`).join("")}${q.type==="series"?'<div class="cell q">?</div>':""}</div>`;
+    }
+    inner+=`<div class="opts">`+
+      (q.texts
+        ? q.texts.map((t,i)=>`<button class="opt text" data-i="${i}"><span class="lab">${LETTERS[i]}</span>${t}</button>`).join("")
+        : q.opts.map((s,i)=>`<button class="opt" data-i="${i}"><span class="lab">${LETTERS[i]}</span>${shapeRender(s)}</button>`).join(""))
+      +`</div><div id="fb"></div>`;
+    main.innerHTML=`<div class="card">${inner}</div>`;
+    main.querySelectorAll(".opt").forEach(btn=>{
+      btn.onclick=()=>{
+        const i=+btn.dataset.i, correct=i===q.answerIdx;
+        if(correct)score++;
+        recordStat(opts.subject,q.topic,correct);
+        if(opts.onResult)opts.onResult(q,correct);
+        main.querySelectorAll(".opt").forEach((b,bi)=>{
+          b.disabled=true;
+          if(bi===q.answerIdx)b.classList.add("correct");
+          else if(bi===i)b.classList.add("wrong");
+        });
+        document.getElementById("fb").innerHTML=`<div class="feedback ${correct?"good":"bad"}"><b>${correct?"✔ Correct!":"✘ Not quite - the answer is "+LETTERS[q.answerIdx]+"."}</b><br>${q.expl}</div><button class="btn" id="nextB">${idx+1>=opts.total?"See results":"Next question →"}</button>`;
+        document.getElementById("nextB").onclick=()=>{idx++;idx>=opts.total?finish():renderQ();};
+      };
+    });
+  }
+  function finish(){
+    const pct=Math.round(100*score/Math.max(idx,1));
+    main.innerHTML=`<div class="card" style="text-align:center">
+      <h2>Session complete 🎉</h2>
+      <p style="font-size:2.2rem;font-weight:800;color:var(--brand)">${score} / ${idx}</p>
+      <p>${pct>=80?"Brilliant work - that's a super score!":pct>=60?"Good effort - nearly there, keep practising!":"Great practising - every question you review makes you stronger!"}</p>
+      <button class="btn" onclick="setTab('${opts.retabId||"home"}')">Practise again</button>
+      <button class="btn ghost" onclick="setTab('progress')">See progress</button>
+    </div>`;
+    const hist=store.get("sessions",[]);
+    hist.push({d:Date.now(),mode:opts.title,score,total:idx});
+    store.set("sessions",hist.slice(-200));
+  }
+  renderQ();
+}
+/* ================= views ================= */
+const VIEWS={
+home(){
+  const st=srState(), due=dueWords().length;
+  const learned=Object.values(st).filter(e=>e.box>=3).length;
+  main.innerHTML=`
+  <div class="card"><h2>Welcome back! 👋</h2>
+  <p>This trainer supplements <a href="https://sahirvhora.github.io/11plus-prep/">11Plus Prep</a> with the things the Birmingham GL test needs most: <b>real visual NVR</b>, <b>daily vocabulary</b> (50% of the GL score is English + verbal reasoning), and <b>unlimited fresh questions</b> so nothing gets memorised.</p>
+  <p class="small">📚 ${due} vocabulary words due today · 🏆 ${learned} words mastered so far</p></div>
+  <div class="home-grid">
+    <div class="mode-card" onclick="setTab('nvr')"><span class="emoji">🔷</span><h3>Visual NVR</h3><p>Picture-based series, matrices, rotations, reflections & odd-one-out - freshly generated every time. 25% of the exam.</p></div>
+    <div class="mode-card" onclick="setTab('vocab')"><span class="emoji">📖</span><h3>Daily Vocabulary</h3><p>10 words a day with spaced repetition - words you miss come back until they stick.</p></div>
+    <div class="mode-card" onclick="setTab('maths')"><span class="emoji">🔢</span><h3>Maths Practice</h3><p>Unlimited generated questions: arithmetic, fractions, percentages, ratio, time, word problems.</p></div>
+    <div class="mode-card" onclick="setTab('verbal')"><span class="emoji">🔤</span><h3>Verbal Reasoning</h3><p>Letter & number series, codes, analogies, odd-one-out, hidden words - GL style.</p></div>
+    <div class="mode-card" onclick="setTab('mock')"><span class="emoji">⏱️</span><h3>GL-style Mock</h3><p>Two timed papers with comprehension, VR, maths & NVR, and a weighted score report.</p></div>
+    <div class="mode-card" onclick="setTab('progress')"><span class="emoji">📊</span><h3>Progress</h3><p>Accuracy by topic, weak areas, and session history - saved on this device.</p></div>
+  </div>`;
+},
+nvr(){
+  main.innerHTML=`<div class="card"><h2>🔷 Visual Non-Verbal Reasoning</h2>
+  <p>Every question is drawn freshly as pictures - just like the real GL paper. Watch out for the classic traps: reflections vs rotations, and shading changes.</p>
+  <button class="btn" id="startB">Start 10 questions</button>
+  <button class="btn alt" id="startL">Quick 5</button></div>`;
+  const start=n=>runSession({title:"Visual NVR",subject:"nonverbal",total:n,retabId:"nvr",nextQuestion:()=>pick(NVR_GENS)()});
+  document.getElementById("startB").onclick=()=>start(10);
+  document.getElementById("startL").onclick=()=>start(5);
+},
+maths(){
+  main.innerHTML=`<div class="card"><h2>🔢 Maths Practice</h2>
+  <p>Questions are generated with fresh numbers every time, covering the GL maths topics. Explanations show the quick mental method.</p>
+  <button class="btn" id="s10">Start 10 questions</button>
+  <button class="btn alt" id="s20">Long set (20)</button></div>`;
+  const start=n=>runSession({title:"Maths",subject:"maths",total:n,retabId:"maths",nextQuestion:()=>pick(MATH_GENS)()});
+  document.getElementById("s10").onclick=()=>start(10);
+  document.getElementById("s20").onclick=()=>start(20);
+},
+verbal(){
+  main.innerHTML=`<div class="card"><h2>🔤 Verbal Reasoning</h2>
+  <p>GL-style question types: letter series, number series, word codes, analogies, odd one out and hidden words.</p>
+  <button class="btn" id="s10">Start 10 questions</button>
+  <button class="btn alt" id="s20">Long set (20)</button></div>`;
+  const start=n=>runSession({title:"Verbal Reasoning",subject:"verbal",total:n,retabId:"verbal",nextQuestion:()=>pick(VR_GENS)()});
+  document.getElementById("s10").onclick=()=>start(10);
+  document.getElementById("s20").onclick=()=>start(20);
+},
+vocab(){
+  const due=dueWords();
+  const st=srState();
+  const boxes=[0,0,0,0,0,0];
+  VOCAB.forEach(v=>{boxes[(st[v.w]||{box:0}).box]++;});
+  main.innerHTML=`<div class="card"><h2>📖 Daily Vocabulary</h2>
+  <p>${due.length} of ${VOCAB.length} words are due today. Words you get wrong come back sooner; words you know return after longer gaps (1, 3, 7, 16, 30 days).</p>
+  <div class="statgrid">
+    <div class="stat"><b>${boxes[0]}</b>New / learning</div>
+    <div class="stat"><b>${boxes[1]+boxes[2]}</b>Getting there</div>
+    <div class="stat"><b>${boxes[3]+boxes[4]+boxes[5]}</b>Mastered</div>
+  </div>
+  <p style="margin-top:12px"><button class="btn" id="startV" ${due.length===0?"disabled":""}>${due.length===0?"All done for today! 🎉":"Start today's 10 words"}</button></p></div>`;
+  if(due.length>0)document.getElementById("startV").onclick=()=>{
+    const words=due.slice(0,10);
+    let i=0;
+    runSession({title:"Vocabulary",subject:"english",total:words.length,retabId:"vocab",
+      nextQuestion:()=>i<words.length?vocabQuestion(words[i++]):null,
+      onResult:(q,correct)=>{const w=words[i-1];if(w)srUpdate(w.w,correct);}
+    });
+  };
+},
+mock(){
+  main.innerHTML=`<div class="card"><h2>⏱️ GL-style Mock Exam</h2>
+  <p>Two timed papers, no feedback until the end - just like the real thing. Answers use A–E style bubbles. The report weights scores the Birmingham way: <b>English + VR 50%, Maths 25%, NVR 25%</b>.</p>
+  <ul style="margin:8px 0 12px 20px;line-height:1.7">
+    <li><b>Paper 1 (25 min):</b> comprehension passage + vocabulary + verbal reasoning - 20 questions</li>
+    <li><b>Paper 2 (25 min):</b> maths + non-verbal reasoning - 20 questions</li>
+  </ul>
+  <p class="small">Tips for the real exam: never leave a blank (no marks are taken off for wrong answers), and skip anything that takes more than a minute - come back at the end.</p>
+  <button class="btn" id="startM">Start mock exam</button></div>`;
+  document.getElementById("startM").onclick=startMock;
+},
+progress(){
+  const stats=store.get("stats",{});
+  const rows=Object.entries(stats).map(([k,v])=>{
+    const [sub,top]=k.split("|");
+    return {sub,top,pct:Math.round(100*v.c/v.t),t:v.t};
+  }).sort((a,b)=>a.pct-b.pct);
+  const weak=rows.filter(r=>r.t>=4&&r.pct<70).slice(0,5);
+  const sessions=store.get("sessions",[]).slice(-12).reverse();
+  main.innerHTML=`<div class="card"><h2>📊 Progress</h2>
+  ${rows.length===0?"<p>No practice recorded yet - complete a session and check back!</p>":`
+  ${weak.length?`<h3>🎯 Focus areas (below 70%)</h3><p>${weak.map(w=>`<span class="pill">${w.sub}: ${w.top} - ${w.pct}%</span>`).join(" ")}</p>`:"<p>💪 No weak areas flagged yet - keep practising to build the picture.</p>"}
+  <h3>Accuracy by topic</h3>
+  <table class="report" style="width:100%"><tr><th>Subject</th><th>Topic</th><th>Attempts</th><th>Accuracy</th><th></th></tr>
+  ${rows.map(r=>`<tr><td>${r.sub}</td><td>${r.top}</td><td>${r.t}</td><td>${r.pct}%</td><td><div class="bar"><i style="width:${r.pct}%"></i></div></td></tr>`).join("")}
+  </table>`}
+  ${sessions.length?`<h3>Recent sessions</h3><table class="report" style="width:100%"><tr><th>Date</th><th>Mode</th><th>Score</th></tr>
+  ${sessions.map(s=>`<tr><td>${new Date(s.d).toLocaleDateString("en-GB")}</td><td>${s.mode}</td><td>${s.score}/${s.total}</td></tr>`).join("")}</table>`:""}
+  <p style="margin-top:12px"><button class="btn ghost" id="resetB">Reset all progress</button></p></div>`;
+  document.getElementById("resetB").onclick=()=>{if(confirm("Delete all saved progress on this device?")){localStorage.removeItem("t11_stats");localStorage.removeItem("t11_sessions");localStorage.removeItem("t11_vocabSR");VIEWS.progress();}};
+}
+};
+/* ================= mock exam ================= */
+function buildMockPapers(){
+  const passage=pick(PASSAGES);
+  const p1=[];
+  passage.qs.forEach(pq=>p1.push({subject:"english",topic:"comprehension",passage,q:pq.q,texts:pq.o,answerIdx:pq.a,expl:pq.e}));
+  shuffle(VOCAB).slice(0,7).forEach(v=>p1.push({subject:"english",...vocabQuestion(v)}));
+  for(let i=0;i<8;i++)p1.push({subject:"verbal",...pick(VR_GENS)()});
+  const p2=[];
+  for(let i=0;i<12;i++)p2.push({subject:"maths",...pick(MATH_GENS)()});
+  for(let i=0;i<8;i++)p2.push({subject:"nonverbal",...pick(NVR_GENS)()});
+  return [{name:"Paper 1 - English & Verbal Reasoning",mins:25,qs:p1},{name:"Paper 2 - Maths & Non-Verbal Reasoning",mins:25,qs:p2}];
+}
+function startMock(){
+  const papers=buildMockPapers();
+  let paperIdx=0;
+  const answers=[papers[0].qs.map(()=>null),papers[1].qs.map(()=>null)];
+  function runPaper(){
+    const paper=papers[paperIdx];
+    let qi=0, remaining=paper.mins*60;
+    if(mockTimerHandle)clearInterval(mockTimerHandle);
+    mockTimerHandle=setInterval(()=>{
+      remaining--;
+      const t=document.getElementById("mockTimer");
+      if(t){t.textContent=fmtT(remaining);t.classList.toggle("low",remaining<120);}
+      if(remaining<=0){clearInterval(mockTimerHandle);mockTimerHandle=null;endPaper();}
+    },1000);
+    const fmtT=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+    function renderQ(){
+      const q=paper.qs[qi];
+      let inner=`<div class="topbar"><h2>${paper.name}</h2><span class="timer" id="mockTimer">${fmtT(remaining)}</span></div>
+      <div class="mocknav">${paper.qs.map((_,i)=>`<button class="${answers[paperIdx][i]!==null?"done":""} ${i===qi?"cur":""}" data-n="${i}">${i+1}</button>`).join("")}</div>`;
+      if(q.passage)inner+=`<div class="passage"><b>${q.passage.title}</b><br>${q.passage.text}</div>`;
+      inner+=`<p class="qtext"><b>Q${qi+1}.</b> ${q.prompt||q.q}</p>`;
+      if(q.grid)inner+=`<div class="grid3">${q.grid.map(s=>`<div class="cell">${shapeRender(s)}</div>`).join("")}<div class="cell q">?</div></div>`;
+      else if(q.cells)inner+=`<div class="qcells">${q.cells.map(s=>`<div class="cell">${shapeRender(s)}</div>`).join("")}${q.type==="series"?'<div class="cell q">?</div>':""}</div>`;
+      inner+=`<div class="opts">`+
+        (q.texts
+          ?q.texts.map((t,i)=>`<button class="opt text ${answers[paperIdx][qi]===i?"correct":""}" data-i="${i}"><span class="lab">${LETTERS[i]}</span>${t}</button>`).join("")
+          :q.opts.map((s,i)=>`<button class="opt ${answers[paperIdx][qi]===i?"correct":""}" data-i="${i}"><span class="lab">${LETTERS[i]}</span>${shapeRender(s)}</button>`).join(""))
+        +`</div>
+      <p style="margin-top:14px;text-align:center">
+        <button class="btn ghost" id="prevB" ${qi===0?"disabled":""}>← Back</button>
+        <button class="btn" id="nextB">${qi===paper.qs.length-1?"Finish paper":"Next →"}</button>
+      </p>`;
+      main.innerHTML=`<div class="card">${inner}</div>`;
+      main.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{answers[paperIdx][qi]=+b.dataset.i;renderQ();});
+      main.querySelectorAll(".mocknav button").forEach(b=>b.onclick=()=>{qi=+b.dataset.n;renderQ();});
+      document.getElementById("prevB").onclick=()=>{if(qi>0){qi--;renderQ();}};
+      document.getElementById("nextB").onclick=()=>{
+        if(qi<paper.qs.length-1){qi++;renderQ();}
+        else{
+          const blanks=answers[paperIdx].filter(a=>a===null).length;
+          if(blanks===0||confirm(`You have ${blanks} unanswered question${blanks>1?"s":""}. In the real exam, never leave blanks! Finish anyway?`)){clearInterval(mockTimerHandle);mockTimerHandle=null;endPaper();}
+        }
+      };
+    }
+    function endPaper(){
+      if(paperIdx===0){
+        paperIdx=1;
+        main.innerHTML=`<div class="card" style="text-align:center"><h2>Paper 1 complete ✔</h2><p>Take a two-minute stretch, then start Paper 2 when ready.</p><button class="btn" id="p2B">Start Paper 2</button></div>`;
+        document.getElementById("p2B").onclick=runPaper;
+      }else mockReport();
+    }
+    renderQ();
+  }
+  function mockReport(){
+    const bySub={english:{c:0,t:0},verbal:{c:0,t:0},maths:{c:0,t:0},nonverbal:{c:0,t:0}};
+    const topicMiss={};
+    papers.forEach((p,pi)=>p.qs.forEach((q,i)=>{
+      const correct=answers[pi][i]===q.answerIdx;
+      bySub[q.subject].t++; if(correct)bySub[q.subject].c++;
+      recordStat(q.subject,q.topic,correct);
+      if(!correct)topicMiss[q.topic]=(topicMiss[q.topic]||0)+1;
+    }));
+    const pc=s=>s.t?s.c/s.t:0;
+    const weighted=Math.round(100*(0.5*(pc(bySub.english)*0.5+pc(bySub.verbal)*0.5)*2*0.5+0.25*pc(bySub.maths)+0.25*pc(bySub.nonverbal))/1);
+    /* weighted: EN+VR pooled 50% */
+    const enVr=(bySub.english.c+bySub.verbal.c)/(bySub.english.t+bySub.verbal.t||1);
+    const finalScore=Math.round(100*(0.5*enVr+0.25*pc(bySub.maths)+0.25*pc(bySub.nonverbal)));
+    const worst=Object.entries(topicMiss).sort((a,b)=>b[1]-a[1]).slice(0,4);
+    main.innerHTML=`<div class="card"><h2>📋 Mock Exam Report</h2>
+    <p style="font-size:2rem;font-weight:800;color:var(--brand);text-align:center">${finalScore}%</p>
+    <p style="text-align:center" class="small">Weighted the Birmingham way: English + VR 50% · Maths 25% · NVR 25%</p>
+    <table class="report" style="width:100%"><tr><th>Section</th><th>Score</th><th>Weight</th><th></th></tr>
+    <tr><td>English + Verbal Reasoning</td><td>${bySub.english.c+bySub.verbal.c}/${bySub.english.t+bySub.verbal.t}</td><td>50%</td><td><div class="bar"><i style="width:${Math.round(enVr*100)}%"></i></div></td></tr>
+    <tr><td>Maths</td><td>${bySub.maths.c}/${bySub.maths.t}</td><td>25%</td><td><div class="bar"><i style="width:${Math.round(pc(bySub.maths)*100)}%"></i></div></td></tr>
+    <tr><td>Non-Verbal Reasoning</td><td>${bySub.nonverbal.c}/${bySub.nonverbal.t}</td><td>25%</td><td><div class="bar"><i style="width:${Math.round(pc(bySub.nonverbal)*100)}%"></i></div></td></tr></table>
+    ${worst.length?`<h3>Topics to review</h3><p>${worst.map(([t,n])=>`<span class="pill">${t} (${n} missed)</span>`).join(" ")}</p>`:"<p>🌟 Nothing missed twice - outstanding!</p>"}
+    <p style="text-align:center;margin-top:12px"><button class="btn" onclick="setTab('mock')">Another mock</button> <button class="btn ghost" onclick="setTab('progress')">Full progress</button></p></div>`;
+    const hist=store.get("sessions",[]);
+    hist.push({d:Date.now(),mode:"Mock exam",score:finalScore,total:100});
+    store.set("sessions",hist.slice(-200));
+  }
+  runPaper();
+}
+window.setTab=setTab;
+setTab("home");
+</script>
+</body>
+</html>
