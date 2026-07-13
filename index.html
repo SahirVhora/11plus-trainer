@@ -308,6 +308,13 @@ function mkNumOpts(ans,fmt){
   const opts=shuffle(set);
   return {texts:opts.map(fmt),answerIdx:opts.indexOf(ans)};
 }
+function formatClock(totalMinutes){
+  const mins=((totalMinutes%1440)+1440)%1440;
+  const hour24=Math.floor(mins/60), minute=mins%60;
+  const suffix=hour24<12?"am":"pm";
+  const hour12=hour24%12||12;
+  return `${hour12}:${String(minute).padStart(2,"0")} ${suffix}`;
+}
 const MATH_GENS=[
   function(){const a=ri(120,980),b=ri(120,980);const ans=a+b;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} + ${b} = ?`,...o,expl:`Add the units, tens and hundreds columns: ${a} + ${b} = ${ans}.`};},
   function(){const a=ri(500,999),b=ri(100,499);const ans=a-b;const o=mkNumOpts(ans);return {topic:"arithmetic",q:`${a} − ${b} = ?`,...o,expl:`${a} − ${b} = ${ans}. Check by adding back: ${ans} + ${b} = ${a}.`};},
@@ -319,10 +326,10 @@ const MATH_GENS=[
   function(){const x=ri(4,15),k=ri(3,12),c=ri(2,20);const ans=x;const o=mkNumOpts(ans);return {topic:"algebra",q:`If y + ${k} = ${x+k+c} − ${c}, what is y?`,...o,expl:`The right side is ${x+k}. So y = ${x+k} − ${k} = ${x}.`};},
   function(){const w=ri(4,12),h=ri(3,9);const which=pick(["area","perimeter"]);const ans=which==="area"?w*h:2*(w+h);const o=mkNumOpts(ans);return {topic:"geometry",q:`A rectangle is ${w} cm long and ${h} cm wide. What is its ${which}${which==="area"?" in cm²":" in cm"}?`,...o,expl:which==="area"?`Area = length × width = ${w} × ${h} = ${ans} cm².`:`Perimeter = 2 × (${w} + ${h}) = ${ans} cm.`};},
   function(){const start=ri(2,9),step=ri(3,9),n=5;const seq=[...Array(4)].map((_,i)=>start+i*step);const ans=start+4*step;const o=mkNumOpts(ans);return {topic:"sequences",q:`What is the next number: ${seq.join(", ")}, ...?`,...o,expl:`The sequence goes up in ${step}s, so next is ${ans}.`};},
-  function(){const h1=ri(7,10),m1=pick([0,15,30,45]),durH=ri(1,3),durM=pick([15,30,45]);let h2=h1+durH,m2=m1+durM;if(m2>=60){m2-=60;h2++;}const fmt=(h,m)=>`${h}:${String(m).padStart(2,"0")}`;const ans=fmt(h2,m2);const wrong=[fmt(h2,(m2+15)%60),fmt(h2-1,m2),fmt(h2,(m2+45)%60)];const opts=shuffle([ans,...wrong]);return {topic:"time",q:`A film starts at ${fmt(h1,m1)} am and lasts ${durH} hour${durH>1?"s":""} ${durM} minutes. When does it finish?`,texts:opts,answerIdx:opts.indexOf(ans),expl:`Add ${durH}h to get ${fmt(h1+durH,m1)}, then ${durM} min → ${ans}.`};},
+  function(){const h1=ri(7,10),m1=pick([0,15,30,45]),durH=ri(1,3),durM=pick([15,30,45]);const start=h1*60+m1,finish=start+durH*60+durM,ans=formatClock(finish);const wrong=shuffle([formatClock(finish+15),formatClock(finish-60),formatClock(finish+45)]);const opts=shuffle([ans,...wrong]);return {topic:"time",q:`A film starts at ${formatClock(start)} and lasts ${durH} hour${durH>1?"s":""} ${durM} minutes. When does it finish?`,texts:opts,answerIdx:opts.indexOf(ans),expl:`Add ${durH}h ${durM}m to ${formatClock(start)} → ${ans}.`};},
   function(){const price=ri(2,8)*10+5,qty=ri(2,4),pay=Math.ceil(price*qty/100)*100;const ans=pay-price*qty;const o=mkNumOpts(ans,x=>x+"p");return {topic:"word-problems",q:`Pencils cost ${price}p each. Misha buys ${qty} and pays with £${pay/100}. How much change does she get?`,...o,expl:`${qty} × ${price}p = ${price*qty}p. Change = ${pay}p − ${price*qty}p = ${ans}p.`};},
   function(){const kids=ri(24,36),per=ri(4,6);const ans=Math.ceil(kids/per);const o=mkNumOpts(ans);return {topic:"word-problems",q:`${kids} children go on a trip. Each car holds ${per} children. How many cars are needed?`,...o,expl:`${kids} ÷ ${per} = ${(kids/per).toFixed(1)} → round UP: ${ans} cars (you can't leave anyone behind).`};},
-  function(){const nums=[...Array(5)].map(()=>ri(2,20));const ans=Math.round(nums.reduce((a,b)=>a+b)/5);const o=mkNumOpts(ans);return {topic:"data",q:`Find the mean (average) of: ${nums.join(", ")}`,...o,expl:`Sum = ${nums.reduce((a,b)=>a+b)}, divide by 5 → ${ans}.`};},
+  function(){const mean=ri(4,18),offsets=shuffle([-2,-1,0,1,2]),nums=offsets.map(n=>mean+n);const o=mkNumOpts(mean);return {topic:"data",q:`Find the mean (average) of: ${nums.join(", ")}`,...o,expl:`Sum = ${nums.reduce((a,b)=>a+b)}, divide by 5 → ${mean}.`};},
   function(){const a=(ri(11,99)/10);const b=(ri(11,99)/10);const ans=Math.round((a+b)*10)/10;const o=mkNumOpts(ans,x=>x.toFixed(1));return {topic:"decimals",q:`${a.toFixed(1)} + ${b.toFixed(1)} = ?`,...o,expl:`Line up the decimal points: ${a.toFixed(1)} + ${b.toFixed(1)} = ${ans.toFixed(1)}.`};}
 ];
 /* ================= Verbal reasoning generators ================= */
@@ -503,7 +510,15 @@ qs:[
 {q:"What do ants get from protecting aphids?",o:["Honeydew to drink","Leaves","Shelter in winter","Help with digging"],a:0,e:"In return they 'drink the sweet honeydew the aphids produce'."},
 {q:"Why are colonies called a 'superorganism'?",o:["Because ants are unusually strong","Because thousands of ants act like one animal","Because they are larger than most insects","Because they live underground"],a:1,e:"The last sentence: 'thousands of bodies behaving like one animal with one purpose'."},
 {q:"Which word best describes the author's attitude to ants?",o:["Fearful","Admiring","Bored","Suspicious"],a:1,e:"Words like 'remarkably' and 'tiny engineers' show admiration."}
-]}
+]},
+{title:"The Pocket Garden",text:`Nora turned the forgotten strip beside her flat into a garden. She began with pots of mint and marigolds, then added a shallow bowl of water. Within weeks, bees visited the flowers and a blackbird bathed in the bowl. Nora kept a notebook, recording each new visitor and the weather that day.`,qs:[{q:"Where did Nora make her garden?",o:["Beside her flat","On a beach","In a school hall","At a farm"],a:0,e:"The first sentence says it was beside her flat."},{q:"Why did Nora keep a notebook?",o:["To draw maps","To record visitors and weather","To count her money","To write stories"],a:1,e:"She recorded each visitor and the weather."},{q:"Which visitor is mentioned?",o:["A fox","A blackbird","A horse","A seal"],a:1,e:"A blackbird bathed in the bowl."}]},
+{title:"The Borrowed Violin",text:`At the village concert, Iqra's violin string snapped just before her solo. Mr Bell, the oldest player in the orchestra, quietly offered his own instrument. It felt unfamiliar at first, but Iqra listened carefully to its warmer sound and finished the piece without stopping.`,qs:[{q:"What problem did Iqra have?",o:["She forgot her music","A string snapped","The lights went out","She was late"],a:1,e:"Her violin string snapped."},{q:"How did Mr Bell help?",o:["He repaired the hall","He offered his violin","He cancelled the concert","He chose a new song"],a:1,e:"He offered his own instrument."},{q:"What does 'quietly' suggest about Mr Bell?",o:["He wanted attention","He was considerate","He was angry","He was confused"],a:1,e:"He helped without making a fuss."}]},
+{title:"A Map in the Attic",text:`While clearing the attic, Theo found a map tucked inside a book about explorers. It showed the old town before the railway was built. Comparing it with a modern map, Theo noticed that his street had once been a stream, now flowing underground in a brick channel.`,qs:[{q:"Where did Theo find the map?",o:["Inside a book","Under a bridge","At school","In a shop"],a:0,e:"It was tucked inside a book."},{q:"What had Theo's street once been?",o:["A railway","A market","A stream","A forest"],a:2,e:"The street had once been a stream."},{q:"Why did Theo compare two maps?",o:["To find a treasure","To see how the town changed","To plan a holiday","To draw a picture"],a:1,e:"The maps showed the town at different times."}]},
+{title:"The Patient Heron",text:`Every morning, Lian saw a grey heron standing at the edge of the canal. It hardly moved for long minutes, even when cyclists rattled past. Then, with astonishing speed, its beak darted into the water and emerged with a small fish. Lian realised that stillness was part of the bird's hunting skill.`,qs:[{q:"Where did the heron stand?",o:["At the canal edge","On a roof","In a field","Beside a road"],a:0,e:"It stood at the edge of the canal."},{q:"What happened after the heron waited?",o:["It flew away","It caught a fish","It sang","It built a nest"],a:1,e:"Its beak emerged with a small fish."},{q:"What is the main idea?",o:["Herons dislike cyclists","Patience helps the heron hunt","Canals have no fish","Lian feared birds"],a:1,e:"The final sentence explains this."}]},
+{title:"The Repair Cafe",text:`On Saturday, neighbours brought broken lamps, loose buttons and wobbly chairs to the repair cafe. Volunteers showed them how to mend each item rather than throw it away. By lunchtime, the room buzzed with conversation and the table of rubbish was much smaller than usual.`,qs:[{q:"What was the purpose of the repair cafe?",o:["To sell new furniture","To mend items","To cook meals","To borrow books"],a:1,e:"Volunteers helped people mend items."},{q:"What does 'buzzed with conversation' mean?",o:["The room was silent","Many people were talking","There were bees inside","The lights were broken"],a:1,e:"It describes a lively room."},{q:"What changed by lunchtime?",o:["More rubbish appeared","The rubbish table was smaller","The cafe closed","The chairs disappeared"],a:1,e:"The passage states it was smaller."}]},
+{title:"The Night Train",text:`Milo had expected the night train to be noisy, but its carriage was calm. Outside, towns flashed past as small clusters of gold. His grandmother pointed out the moon reflected in a river, and Milo stayed awake longer than planned, imagining where the tracks might lead.`,qs:[{q:"What surprised Milo?",o:["The train was calm","The train was empty","It was daytime","His ticket was lost"],a:0,e:"He expected noise, but the carriage was calm."},{q:"How are towns described?",o:["As gold clusters","As dark forests","As tall mountains","As blue lakes"],a:0,e:"They flashed past as clusters of gold."},{q:"Why did Milo stay awake?",o:["He was unwell","He was imagining the journey","He lost his bag","He was hungry"],a:1,e:"He imagined where the tracks might lead."}]},
+{title:"The Clever Bridge",text:`A class built a model bridge from paper straws. Their first design bent when they added books, so they examined the problem. They discovered that triangles made the frame stronger because each side supported the others. Their second bridge held twice as many books.`,qs:[{q:"What was the first bridge's problem?",o:["It was too long","It bent under weight","It was wet","It had no straws"],a:1,e:"It bent when books were added."},{q:"What made the second design stronger?",o:["More paint","Triangle shapes","Longer books","A wider table"],a:1,e:"They discovered triangles strengthened the frame."},{q:"What does the passage show?",o:["Mistakes can help improve designs","Books are too heavy","Paper is useless","Bridges need paint"],a:0,e:"The class learned from the first design."}]},
+{title:"The Snowy Footprints",text:`After fresh snow, Amara saw a line of tiny prints crossing the park path. They led to a hedge, then vanished beneath its branches. She did not disturb the shelter, but later looked up animal tracks in a library book and decided the visitor was probably a fox.`,qs:[{q:"What did Amara first see?",o:["Tiny prints","A fox","A library","A bird nest"],a:0,e:"She saw a line of tiny prints."},{q:"Where did the prints lead?",o:["To a hedge","To a pond","To a car","To a gate"],a:0,e:"They led to a hedge."},{q:"Why did Amara use a library book?",o:["To identify the tracks","To draw a map","To borrow boots","To find a friend"],a:0,e:"She looked up animal tracks."}]}
 ];
 /* ================= Spaced repetition (Leitner) ================= */
 const SR_INTERVALS=[0,1,3,7,16,30]; /* days per box */
@@ -513,6 +528,13 @@ function dueWords(){
   const st=srState();
   const due=VOCAB.filter(v=>{const e=st[v.w];return !e||(today()-e.last)>=SR_INTERVALS[Math.min(e.box,5)];});
   return shuffle(due);
+}
+function dailyWords(limit=10){
+  const st=srState();
+  const due=dueWords();
+  const reviews=due.filter(v=>st[v.w]);
+  const fresh=due.filter(v=>!st[v.w]);
+  return shuffle(reviews).concat(shuffle(fresh)).slice(0,limit);
 }
 function srUpdate(word,correct){
   const st=srState();
@@ -545,6 +567,10 @@ function vocabQuestion(v){
 /* ================= UI framework ================= */
 const nav=document.getElementById("nav"), main=document.getElementById("main");
 const TABS=[["home","🏠 Home"],["nvr","🔷 NVR"],["vocab","📖 Vocabulary"],["maths","🔢 Maths"],["verbal","🔤 Verbal"],["mock","⏱️ Mock Exam"],["progress","📊 Progress"]];
+const EXAM_PROFILES={
+  practice:{label:"General 11+ practice",note:"Independent practice, not an official or school-specific paper.",weights:{english:.25,verbal:.25,maths:.25,nonverbal:.25}},
+  birmingham:{label:"Birmingham-style practice",note:"Use this as a practice-style guide only. Check your target school's official admissions guidance for its current format and weighting.",weights:{english:.25,verbal:.25,maths:.25,nonverbal:.25}}
+};
 let mockTimerHandle=null;
 function setTab(id){
   if(mockTimerHandle&&id!=="mock"){ if(!confirm("Leave the mock exam? Your timer will keep running until you submit or leave.")) return; clearInterval(mockTimerHandle); mockTimerHandle=null; }
@@ -557,6 +583,18 @@ TABS.forEach(([id,label])=>{
   nav.appendChild(b);
 });
 function el(html){const d=document.createElement("div");d.innerHTML=html;return d;}
+function weakTopics(subject){
+  return new Set(Object.entries(store.get("stats",{})).filter(([key,v])=>{
+    const [sub,topic]=key.split("|");
+    return sub===subject&&v.t>=4&&v.c/v.t<0.7&&topic;
+  }).map(([key])=>key.split("|")[1]));
+}
+function pickPracticeQuestion(gens,subject){
+  const weak=weakTopics(subject);
+  if(!weak.size||Math.random()<0.3)return pick(gens)();
+  const candidates=Array.from({length:12},()=>pick(gens)());
+  return candidates.find(q=>weak.has(q.topic))||candidates[0];
+}
 /* ---- generic practice session runner ---- */
 function runSession(opts){
   /* opts: {title, subject, nextQuestion():q, total, onWordResult?} - q:{prompt/q, cells?, grid?, opts(shapes) or texts, answerIdx, expl, topic} */
@@ -611,36 +649,36 @@ function runSession(opts){
 /* ================= views ================= */
 const VIEWS={
 home(){
-  const st=srState(), due=dueWords().length;
+  const st=srState(), due=dailyWords();
   const learned=Object.values(st).filter(e=>e.box>=3).length;
   main.innerHTML=`
   <div class="card"><h2>Welcome back! 👋</h2>
-  <p>This trainer supplements <a href="https://sahirvhora.github.io/11plus-prep/">11Plus Prep</a> with the things the Birmingham GL test needs most: <b>real visual NVR</b>, <b>daily vocabulary</b> (50% of the GL score is English + verbal reasoning), and <b>unlimited fresh questions</b> so nothing gets memorised.</p>
-  <p class="small">📚 ${due} vocabulary words due today · 🏆 ${learned} words mastered so far</p></div>
+  <p>This trainer supplements <a href="https://sahirvhora.github.io/11plus-prep/">11Plus Prep</a> with visual NVR, daily vocabulary and fresh practice questions, so pupils can build confidence without memorising a fixed set.</p>
+  <p class="small">📚 ${due.length} vocabulary words in today's plan · 🏆 ${learned} words mastered so far</p></div>
   <div class="home-grid">
     <div class="mode-card" onclick="setTab('nvr')"><span class="emoji">🔷</span><h3>Visual NVR</h3><p>Picture-based series, matrices, rotations, reflections & odd-one-out - freshly generated every time. 25% of the exam.</p></div>
     <div class="mode-card" onclick="setTab('vocab')"><span class="emoji">📖</span><h3>Daily Vocabulary</h3><p>10 words a day with spaced repetition - words you miss come back until they stick.</p></div>
     <div class="mode-card" onclick="setTab('maths')"><span class="emoji">🔢</span><h3>Maths Practice</h3><p>Unlimited generated questions: arithmetic, fractions, percentages, ratio, time, word problems.</p></div>
     <div class="mode-card" onclick="setTab('verbal')"><span class="emoji">🔤</span><h3>Verbal Reasoning</h3><p>Letter & number series, codes, analogies, odd-one-out, hidden words - GL style.</p></div>
-    <div class="mode-card" onclick="setTab('mock')"><span class="emoji">⏱️</span><h3>GL-style Mock</h3><p>Two timed papers with comprehension, VR, maths & NVR, and a weighted score report.</p></div>
+    <div class="mode-card" onclick="setTab('mock')"><span class="emoji">⏱️</span><h3>Practice Mock</h3><p>Two timed practice papers with comprehension, VR, maths and NVR, plus a clear score report.</p></div>
     <div class="mode-card" onclick="setTab('progress')"><span class="emoji">📊</span><h3>Progress</h3><p>Accuracy by topic, weak areas, and session history - saved on this device.</p></div>
   </div>`;
 },
 nvr(){
   main.innerHTML=`<div class="card"><h2>🔷 Visual Non-Verbal Reasoning</h2>
-  <p>Every question is drawn freshly as pictures - just like the real GL paper. Watch out for the classic traps: reflections vs rotations, and shading changes.</p>
+  <p>Every question is drawn freshly as pictures for practice. Watch for reflections versus rotations, and shading changes.</p>
   <button class="btn" id="startB">Start 10 questions</button>
   <button class="btn alt" id="startL">Quick 5</button></div>`;
-  const start=n=>runSession({title:"Visual NVR",subject:"nonverbal",total:n,retabId:"nvr",nextQuestion:()=>pick(NVR_GENS)()});
+  const start=n=>runSession({title:"Visual NVR",subject:"nonverbal",total:n,retabId:"nvr",nextQuestion:()=>pickPracticeQuestion(NVR_GENS,"nonverbal")});
   document.getElementById("startB").onclick=()=>start(10);
   document.getElementById("startL").onclick=()=>start(5);
 },
 maths(){
   main.innerHTML=`<div class="card"><h2>🔢 Maths Practice</h2>
-  <p>Questions are generated with fresh numbers every time, covering the GL maths topics. Explanations show the quick mental method.</p>
+  <p>Questions use fresh numbers each time. Once progress identifies a weak topic, most of the next set focuses there while keeping some variety.</p>
   <button class="btn" id="s10">Start 10 questions</button>
   <button class="btn alt" id="s20">Long set (20)</button></div>`;
-  const start=n=>runSession({title:"Maths",subject:"maths",total:n,retabId:"maths",nextQuestion:()=>pick(MATH_GENS)()});
+  const start=n=>runSession({title:"Maths",subject:"maths",total:n,retabId:"maths",nextQuestion:()=>pickPracticeQuestion(MATH_GENS,"maths")});
   document.getElementById("s10").onclick=()=>start(10);
   document.getElementById("s20").onclick=()=>start(20);
 },
@@ -649,12 +687,12 @@ verbal(){
   <p>GL-style question types: letter series, number series, word codes, analogies, odd one out and hidden words.</p>
   <button class="btn" id="s10">Start 10 questions</button>
   <button class="btn alt" id="s20">Long set (20)</button></div>`;
-  const start=n=>runSession({title:"Verbal Reasoning",subject:"verbal",total:n,retabId:"verbal",nextQuestion:()=>pick(VR_GENS)()});
+  const start=n=>runSession({title:"Verbal Reasoning",subject:"verbal",total:n,retabId:"verbal",nextQuestion:()=>pickPracticeQuestion(VR_GENS,"verbal")});
   document.getElementById("s10").onclick=()=>start(10);
   document.getElementById("s20").onclick=()=>start(20);
 },
 vocab(){
-  const due=dueWords();
+  const due=dailyWords();
   const st=srState();
   const boxes=[0,0,0,0,0,0];
   VOCAB.forEach(v=>{boxes[(st[v.w]||{box:0}).box]++;});
@@ -676,15 +714,19 @@ vocab(){
   };
 },
 mock(){
-  main.innerHTML=`<div class="card"><h2>⏱️ GL-style Mock Exam</h2>
-  <p>Two timed papers, no feedback until the end - just like the real thing. Answers use A–E style bubbles. The report weights scores the Birmingham way: <b>English + VR 50%, Maths 25%, NVR 25%</b>.</p>
+  const profileKey=store.get("examProfile","practice"), profile=EXAM_PROFILES[profileKey];
+  main.innerHTML=`<div class="card"><h2>⏱️ Practice Mock Exam</h2>
+  <p>Two timed practice papers with no feedback until the end. This is ${profile.note.toLowerCase()}</p>
+  <label class="small" for="profileSelect"><b>Practice profile</b></label>
+  <p><select id="profileSelect">${Object.entries(EXAM_PROFILES).map(([k,p])=>`<option value="${k}" ${k===profileKey?"selected":""}>${p.label}</option>`).join("")}</select></p>
   <ul style="margin:8px 0 12px 20px;line-height:1.7">
-    <li><b>Paper 1 (25 min):</b> comprehension passage + vocabulary + verbal reasoning - 20 questions</li>
-    <li><b>Paper 2 (25 min):</b> maths + non-verbal reasoning - 20 questions</li>
+    <li><b>Paper 1 (25 min):</b> comprehension, vocabulary and verbal reasoning - 20 questions</li>
+    <li><b>Paper 2 (25 min):</b> maths and non-verbal reasoning - 20 questions</li>
   </ul>
-  <p class="small">Tips for the real exam: never leave a blank (no marks are taken off for wrong answers), and skip anything that takes more than a minute - come back at the end.</p>
-  <button class="btn" id="startM">Start mock exam</button></div>`;
-  document.getElementById("startM").onclick=startMock;
+  <p class="small">Check your target school's published guidance before relying on any format, timing or score weighting.</p>
+  <button class="btn" id="startM">Start practice mock</button></div>`;
+  document.getElementById("profileSelect").onchange=e=>{store.set("examProfile",e.target.value);VIEWS.mock();};
+  document.getElementById("startM").onclick=()=>startMock(profileKey);
 },
 progress(){
   const stats=store.get("stats",{});
@@ -714,12 +756,14 @@ function buildMockPapers(){
   passage.qs.forEach(pq=>p1.push({subject:"english",topic:"comprehension",passage,q:pq.q,texts:pq.o,answerIdx:pq.a,expl:pq.e}));
   shuffle(VOCAB).slice(0,7).forEach(v=>p1.push({subject:"english",...vocabQuestion(v)}));
   for(let i=0;i<8;i++)p1.push({subject:"verbal",...pick(VR_GENS)()});
+  while(p1.length<20)p1.push({subject:"english",...vocabQuestion(pick(VOCAB))});
   const p2=[];
   for(let i=0;i<12;i++)p2.push({subject:"maths",...pick(MATH_GENS)()});
   for(let i=0;i<8;i++)p2.push({subject:"nonverbal",...pick(NVR_GENS)()});
   return [{name:"Paper 1 - English & Verbal Reasoning",mins:25,qs:p1},{name:"Paper 2 - Maths & Non-Verbal Reasoning",mins:25,qs:p2}];
 }
-function startMock(){
+function startMock(profileKey="practice"){
+  const profile=EXAM_PROFILES[profileKey]||EXAM_PROFILES.practice;
   const papers=buildMockPapers();
   let paperIdx=0;
   const answers=[papers[0].qs.map(()=>null),papers[1].qs.map(()=>null)];
@@ -782,18 +826,13 @@ function startMock(){
       if(!correct)topicMiss[q.topic]=(topicMiss[q.topic]||0)+1;
     }));
     const pc=s=>s.t?s.c/s.t:0;
-    const weighted=Math.round(100*(0.5*(pc(bySub.english)*0.5+pc(bySub.verbal)*0.5)*2*0.5+0.25*pc(bySub.maths)+0.25*pc(bySub.nonverbal))/1);
-    /* weighted: EN+VR pooled 50% */
-    const enVr=(bySub.english.c+bySub.verbal.c)/(bySub.english.t+bySub.verbal.t||1);
-    const finalScore=Math.round(100*(0.5*enVr+0.25*pc(bySub.maths)+0.25*pc(bySub.nonverbal)));
+    const finalScore=Math.round(100*(profile.weights.english*pc(bySub.english)+profile.weights.verbal*pc(bySub.verbal)+profile.weights.maths*pc(bySub.maths)+profile.weights.nonverbal*pc(bySub.nonverbal)));
     const worst=Object.entries(topicMiss).sort((a,b)=>b[1]-a[1]).slice(0,4);
     main.innerHTML=`<div class="card"><h2>📋 Mock Exam Report</h2>
     <p style="font-size:2rem;font-weight:800;color:var(--brand);text-align:center">${finalScore}%</p>
-    <p style="text-align:center" class="small">Weighted the Birmingham way: English + VR 50% · Maths 25% · NVR 25%</p>
+    <p style="text-align:center" class="small">${profile.label}: ${profile.note}</p>
     <table class="report" style="width:100%"><tr><th>Section</th><th>Score</th><th>Weight</th><th></th></tr>
-    <tr><td>English + Verbal Reasoning</td><td>${bySub.english.c+bySub.verbal.c}/${bySub.english.t+bySub.verbal.t}</td><td>50%</td><td><div class="bar"><i style="width:${Math.round(enVr*100)}%"></i></div></td></tr>
-    <tr><td>Maths</td><td>${bySub.maths.c}/${bySub.maths.t}</td><td>25%</td><td><div class="bar"><i style="width:${Math.round(pc(bySub.maths)*100)}%"></i></div></td></tr>
-    <tr><td>Non-Verbal Reasoning</td><td>${bySub.nonverbal.c}/${bySub.nonverbal.t}</td><td>25%</td><td><div class="bar"><i style="width:${Math.round(pc(bySub.nonverbal)*100)}%"></i></div></td></tr></table>
+    ${["english","verbal","maths","nonverbal"].map(key=>`<tr><td>${key==="nonverbal"?"Non-Verbal Reasoning":key[0].toUpperCase()+key.slice(1)}</td><td>${bySub[key].c}/${bySub[key].t}</td><td>${Math.round(profile.weights[key]*100)}%</td><td><div class="bar"><i style="width:${Math.round(pc(bySub[key])*100)}%"></i></div></td></tr>`).join("")}</table>
     ${worst.length?`<h3>Topics to review</h3><p>${worst.map(([t,n])=>`<span class="pill">${t} (${n} missed)</span>`).join(" ")}</p>`:"<p>🌟 Nothing missed twice - outstanding!</p>"}
     <p style="text-align:center;margin-top:12px"><button class="btn" onclick="setTab('mock')">Another mock</button> <button class="btn ghost" onclick="setTab('progress')">Full progress</button></p></div>`;
     const hist=store.get("sessions",[]);
