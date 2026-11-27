@@ -1,0 +1,16 @@
+# OS & editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Build & logs
+dist/
+_site/
+*.log
